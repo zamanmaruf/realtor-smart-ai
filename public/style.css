@@ -1,0 +1,275 @@
+/* Custom styles for RealtorSmart AI */
+
+/* Futuristic background */
+html, body {
+    background: url('/real-estate-bg.jpeg') no-repeat center center fixed !important;
+    background-size: cover !important;
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fallback background if image fails to load */
+html, body {
+    background-color: #1a1a1a !important;
+}
+
+/* Force background on all elements */
+* {
+    background-attachment: fixed !important;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    background-size: 200% 200%;
+    animation: backgroundShift 20s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes backgroundShift {
+    0%, 100% { background-position: 0% 0%, 0% 0%; }
+    50% { background-position: 100% 100%, 100% 100%; }
+}
+
+/* Digital network overlay */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(90deg, transparent 98%, rgba(59, 130, 246, 0.3) 100%),
+        linear-gradient(0deg, transparent 98%, rgba(59, 130, 246, 0.3) 100%);
+    background-size: 50px 50px, 50px 50px;
+    opacity: 0.1;
+    z-index: -1;
+    animation: networkPulse 4s ease-in-out infinite;
+}
+
+
+
+@keyframes networkPulse {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.2; }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+/* Property card hover effects */
+.property-card {
+    transition: all 0.3s ease;
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Chatbot animations */
+#chatbotWindow {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* WhatsApp button pulse effect */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.whatsapp-button {
+    animation: pulse 2s infinite;
+}
+
+/* Loading spinner */
+.spinner {
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #3498db;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Custom button styles */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+/* Futuristic text effects */
+.hero-title {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { text-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+    50% { text-shadow: 0 0 30px rgba(59, 130, 246, 0.8); }
+}
+
+/* Enhanced card effects for futuristic theme */
+.property-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 20px rgba(59, 130, 246, 0.3);
+    border-color: rgba(59, 130, 246, 0.5);
+}
+
+/* Form input focus effects */
+.form-input:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Chat message animations */
+.chat-message {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    #chatbotWindow {
+        width: calc(100vw - 2rem);
+        left: 1rem;
+        right: 1rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .bg-gray-50 {
+        background-color: #1f2937;
+    }
+    
+    .text-gray-800 {
+        color: #f9fafb;
+    }
+    
+    .bg-white {
+        background-color: #374151;
+    }
+}
+
+/* Dark mode styles */
+.dark {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+}
+
+.dark .bg-white {
+    background-color: #2d2d2d !important;
+    color: #ffffff !important;
+}
+
+.dark .text-gray-800 {
+    color: #e5e5e5 !important;
+}
+
+.dark .text-gray-600 {
+    color: #b3b3b3 !important;
+}
+
+.dark .border-gray-300 {
+    border-color: #4a4a4a !important;
+}
+
+.dark .bg-gray-100 {
+    background-color: #3a3a3a !important;
+}
+
+.dark .bg-gray-50 {
+    background-color: #2a2a2a !important;
+}
+
+.dark .shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark .hover\:bg-gray-100:hover {
+    background-color: #4a4a4a !important;
+}
+
+.dark .hover\:bg-gray-50:hover {
+    background-color: #3a3a3a !important;
+}
+
+.dark .property-card {
+    background: rgba(45, 45, 45, 0.9) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark .bg-blue-600 {
+    background-color: #2563eb !important;
+}
+
+.dark .text-blue-600 {
+    color: #60a5fa !important;
+}
+
+/* Print styles */
+@media print {
+    #chatbot, .whatsapp-button {
+        display: none !important;
+    }
+} 
