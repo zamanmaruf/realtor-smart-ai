@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Test</title>
+    <style>
+        body {
+            background: url('/real-estate-bg.jpeg?v=1.0.2') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 20px;
+            color: white;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+        }
+        .test-info {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+        }
+        .image-test {
+            margin: 20px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <h1>Background Image Test</h1>
+        <p>If you can see this text clearly, the background image is working!</p>
+        
+        <div class="image-test">
+            <h3>Image Test:</h3>
+            <p>URL: /real-estate-bg.jpeg?v=1.0.2</p>
+            <p>Size: 349KB</p>
+            <p>Type: JPEG</p>
+        </div>
+        
+        <div class="image-test">
+            <h3>Direct Image Link:</h3>
+            <a href="/real-estate-bg.jpeg" target="_blank" style="color: #00ff00;">Click here to open image directly</a>
+        </div>
+        
+        <div class="image-test">
+            <h3>Current Time:</h3>
+            <p id="current-time"></p>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('current-time').textContent = new Date().toLocaleString();
+    </script>
+</body>
+</html> 

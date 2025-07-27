@@ -28,6 +28,11 @@ app.get('/test-bg', (req, res) => {
     res.sendFile(path.join(__dirname, '../test-bg.html'));
 });
 
+// Health check endpoint for Vercel
+app.get('/api/health', (req, res) => {
+    res.json({ status: 'OK', message: 'RealtorSmart AI is running!' });
+});
+
 // API Routes
 const leadsRoutes = require('./routes/leads');
 const chatbotRoutes = require('./routes/chatbot');
@@ -37,9 +42,14 @@ app.use('/api/leads', leadsRoutes);
 app.use('/api/chat', chatbotRoutes);
 app.use('/api/push', pushRoutes);
 
-// Start server
-app.listen(PORT, () => {
-    console.log(`🚀 RealtorSmart AI server running on port ${PORT}`);
-    console.log(`📱 Frontend: http://localhost:${PORT}`);
-    console.log(`🔧 Admin Dashboard: http://localhost:${PORT}/admin`);
-}); 
+// Start server (only if not in Vercel environment)
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+    app.listen(PORT, () => {
+        console.log(`🚀 RealtorSmart AI server running on port ${PORT}`);
+        console.log(`📱 Frontend: http://localhost:${PORT}`);
+        console.log(`🔧 Admin Dashboard: http://localhost:${PORT}/admin`);
+    });
+}
+
+// Export for Vercel
+module.exports = app; 
