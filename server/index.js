@@ -13,7 +13,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve static files from public directory
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../public'), {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.css')) {
+            res.setHeader('Content-Type', 'text/css');
+        }
+        if (path.endsWith('.js')) {
+            res.setHeader('Content-Type', 'application/javascript');
+        }
+        if (path.endsWith('.jpg') || path.endsWith('.jpeg')) {
+            res.setHeader('Content-Type', 'image/jpeg');
+        }
+        if (path.endsWith('.png')) {
+            res.setHeader('Content-Type', 'image/png');
+        }
+    }
+}));
 
 // Serve HTML files from views directory
 app.get('/', (req, res) => {
@@ -26,6 +41,23 @@ app.get('/admin', (req, res) => {
 
 app.get('/test-bg', (req, res) => {
     res.sendFile(path.join(__dirname, '../test-bg.html'));
+});
+
+// Specific routes for images
+app.get('/real-estate-bg.jpeg', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/real-estate-bg.jpeg'));
+});
+
+app.get('/property1.jpg', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/property1.jpg'));
+});
+
+app.get('/property2.jpg', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/property2.jpg'));
+});
+
+app.get('/property3.jpg', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/property3.jpg'));
 });
 
 // Health check endpoint for Vercel
