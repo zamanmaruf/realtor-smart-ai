@@ -16,36 +16,12 @@
       "dest": "server/index.js"
     },
     {
-      "src": "/real-estate-bg.jpeg",
-      "dest": "/public/real-estate-bg.jpeg"
+      "src": "/test-static",
+      "dest": "server/index.js"
     },
     {
-      "src": "/property1.jpg",
-      "dest": "/public/property1.jpg"
-    },
-    {
-      "src": "/property2.jpg",
-      "dest": "/public/property2.jpg"
-    },
-    {
-      "src": "/property3.jpg",
-      "dest": "/public/property3.jpg"
-    },
-    {
-      "src": "/style.css",
-      "dest": "/public/style.css"
-    },
-    {
-      "src": "/chatbot.js",
-      "dest": "/public/chatbot.js"
-    },
-    {
-      "src": "/manifest.json",
-      "dest": "/public/manifest.json"
-    },
-    {
-      "src": "/sw.js",
-      "dest": "/public/sw.js"
+      "src": "/test-bg",
+      "dest": "server/index.js"
     },
     {
       "src": "/(.*)",

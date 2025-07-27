@@ -2,7 +2,7 @@
 
 /* Futuristic background */
 html, body {
-    background: url('/real-estate-bg.jpeg') no-repeat center center fixed !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
     background-size: cover !important;
     position: relative;
     min-height: 100vh;
@@ -10,9 +10,10 @@ html, body {
     padding: 0;
 }
 
-/* Fallback background if image fails to load */
+/* Try to load the image, but fallback to gradient */
 html, body {
-    background-color: #1a1a1a !important;
+    background: url('/real-estate-bg.jpeg'), linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    background-size: cover !important;
 }
 
 /* Force background on all elements */
