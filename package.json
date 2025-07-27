@@ -1,0 +1,34 @@
+{
+  "name": "realtor-smart-ai",
+  "version": "1.0.0",
+  "description": "An intelligent real estate assistant platform for agents and brokers",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "real-estate",
+    "ai",
+    "chatbot",
+    "lead-management",
+    "property-listings"
+  ],
+  "author": "RealtorSmart AI Team",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "openai": "^5.10.2",
+    "web-push": "^3.6.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
