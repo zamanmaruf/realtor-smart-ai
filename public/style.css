@@ -16,6 +16,12 @@ html, body {
     background-size: cover !important;
 }
 
+/* Ensure background is preserved in all modes */
+html.dark, body.dark, .dark html, .dark body {
+    background: url('/real-estate-bg.jpeg') no-repeat center center fixed !important;
+    background-size: cover !important;
+}
+
 /* Force background on all elements */
 * {
     background-attachment: fixed !important;
@@ -183,7 +189,6 @@ html {
 
 /* Dark mode styles */
 .dark {
-    background-color: #1a1a1a !important;
     color: #ffffff !important;
 }
 

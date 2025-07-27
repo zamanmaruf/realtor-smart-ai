@@ -32,6 +32,12 @@
             padding: 0;
         }
         
+        /* Ensure background is preserved in dark mode */
+        html.dark, body.dark, .dark html, .dark body {
+            background: url('/real-estate-bg.jpeg') no-repeat center center fixed !important;
+            background-size: cover !important;
+        }
+        
         /* Ensure text is readable */
         .text-white, h1, h2, h3, p {
             color: white !important;
