@@ -30,6 +30,24 @@ app.use(express.static(path.join(__dirname, '../public'), {
     }
 }));
 
+// Also serve static files from root directory
+app.use(express.static(path.join(__dirname, '..'), {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.css')) {
+            res.setHeader('Content-Type', 'text/css');
+        }
+        if (path.endsWith('.js')) {
+            res.setHeader('Content-Type', 'application/javascript');
+        }
+        if (path.endsWith('.jpg') || path.endsWith('.jpeg')) {
+            res.setHeader('Content-Type', 'image/jpeg');
+        }
+        if (path.endsWith('.png')) {
+            res.setHeader('Content-Type', 'image/png');
+        }
+    }
+}));
+
 // Serve HTML files from views directory
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../views/index.html'));
@@ -41,6 +59,10 @@ app.get('/admin', (req, res) => {
 
 app.get('/test-bg', (req, res) => {
     res.sendFile(path.join(__dirname, '../test-bg.html'));
+});
+
+app.get('/test-static', (req, res) => {
+    res.sendFile(path.join(__dirname, '../test-static.html'));
 });
 
 // Specific routes for images

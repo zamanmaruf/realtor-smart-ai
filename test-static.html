@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static File Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .test-item {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .success { background: #d4edda; border-color: #c3e6cb; }
+        .error { background: #f8d7da; border-color: #f5c6cb; }
+        img {
+            max-width: 200px;
+            max-height: 150px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Static File Test</h1>
+    
+    <div class="test-item">
+        <h3>Background Image Test</h3>
+        <div id="bg-test" style="width: 300px; height: 200px; border: 2px solid #333; background: url('/real-estate-bg.jpeg') no-repeat center center; background-size: cover;"></div>
+        <p>If you see the background image above, it's working!</p>
+    </div>
+    
+    <div class="test-item">
+        <h3>Property Images Test</h3>
+        <img src="/property1.jpg" alt="Property 1" onload="this.parentElement.classList.add('success')" onerror="this.parentElement.classList.add('error')">
+        <img src="/property2.jpg" alt="Property 2" onload="this.parentElement.classList.add('success')" onerror="this.parentElement.classList.add('error')">
+        <img src="/property3.jpg" alt="Property 3" onload="this.parentElement.classList.add('success')" onerror="this.parentElement.classList.add('error')">
+    </div>
+    
+    <div class="test-item">
+        <h3>CSS Test</h3>
+        <link rel="stylesheet" href="/style.css" onload="this.parentElement.classList.add('success')" onerror="this.parentElement.classList.add('error')">
+        <p>CSS loaded status will be shown above</p>
+    </div>
+    
+    <div class="test-item">
+        <h3>Direct File URLs</h3>
+        <p><a href="/real-estate-bg.jpeg" target="_blank">Background Image</a></p>
+        <p><a href="/style.css" target="_blank">CSS File</a></p>
+        <p><a href="/property1.jpg" target="_blank">Property 1</a></p>
+    </div>
+</body>
+</html> 
